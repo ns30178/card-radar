@@ -52,4 +52,4 @@ OUTPUT_DIR = "docs/data"
 TELEGRAM_TOKEN_ENV = "TELEGRAM_BOT_TOKEN"
 TELEGRAM_CHAT_ID_ENV = "TELEGRAM_CHAT_ID"
 # 網站公開網址（會附在通知訊息裡，方便你點開查看）
-SITE_URL = "https://<ns30178>.github.io/<你的repo>/"
+SITE_URL = "https://ns30178.github.io/card-radar/"
