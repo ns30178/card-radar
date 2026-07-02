@@ -1,0 +1,448 @@
+{
+  "category": "delivery_streaming",
+  "label": "外送影音",
+  "emoji": "🍔",
+  "updated_at": "2026-07-02 15:51",
+  "primary": [
+    {
+      "id": "esun-ubear",
+      "name": "玉山 U Bear 卡",
+      "bank": "玉山銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "delivery_streaming"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.0,
+        "delivery_streaming": 10.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 10.0,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "影音加碼段有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "網購 3%、Netflix/Spotify 等影音最高 10%（含新戶）。",
+      "highlights": [
+        "影音高回饋",
+        "網購加碼",
+        "年輕族群"
+      ],
+      "limitations": "10% 多含新戶加碼且有上限；須登錄。",
+      "valid_until": "2026-12-31",
+      "source": "https://roo.cash/blog/video-platform-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/u-bear",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "ctbc-foodpanda",
+      "name": "中信 foodpanda 聯名卡",
+      "bank": "中國信託",
+      "network": "Mastercard",
+      "categories": [
+        "delivery_streaming"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "delivery_streaming": 10.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 10.0,
+      "cap": {
+        "amount": 600,
+        "period": "monthly",
+        "note": "基礎回饋外優惠碼加碼上看 30%"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "foodpanda 站內基礎高回饋，搭優惠碼上看 30%。",
+      "highlights": [
+        "外送神卡",
+        "pandapro 加乘"
+      ],
+      "limitations": "30% 需搭平台優惠碼且有名額；站外回饋普通。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.money101.com.tw/blog/foodpanda-空腹熊貓-外送-首購-優惠碼-信用卡-現金回饋-網購",
+      "source_type": "fallback",
+      "official_url": "https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_product/cc_introduction_index/C_FP.html",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "firstbank-ileo",
+      "name": "第一銀行 iLEO 卡",
+      "bank": "第一銀行",
+      "network": "Mastercard",
+      "categories": [
+        "delivery_streaming",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "delivery_streaming": 5.0,
+        "mobile_pay": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": 200,
+        "period": "monthly",
+        "note": "外送加碼每戶月上限 200 元"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": true,
+        "min_spend": 5000,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "滿額後 Uber Eats/foodpanda 等 5% 刷卡金。",
+      "highlights": [
+        "外送加碼",
+        "數位帳戶整合"
+      ],
+      "limitations": "須滿 5000 元 + 登錄；月回饋上限僅 200 元。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/foodpanda-ubereats-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://card.firstbank.com.tw/sites/card/zh_TW/1565690685937",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "ctbc-digital",
+      "name": "中信數位娛樂卡",
+      "bank": "中國信託",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "delivery_streaming"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "online_shopping": 3.0,
+        "delivery_streaming": 5.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": 500,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "數位/外送加碼，年輕客群向。",
+      "highlights": [
+        "數位娛樂",
+        "外送加碼"
+      ],
+      "limitations": "須登錄；上限每期 500 元。",
+      "valid_until": "2026-12-31",
+      "source": "https://roo.cash/blog/delivery-platform-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://www.ctbcbank.com/content/twrbo/zh_tw/cc_index/cc_product/cc_introduction_index.html",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "esun-unicard",
+      "name": "玉山 Unicard",
+      "bank": "玉山銀行",
+      "network": "Mastercard",
+      "categories": [
+        "delivery_streaming",
+        "domestic_general",
+        "online_shopping"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "delivery_streaming": 4.5,
+        "domestic_general": 1.0,
+        "online_shopping": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 4.5,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "Up 選加碼有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "訂閱「Up 選」後可自選類別加碼，外送最高 4.5%。",
+      "highlights": [
+        "權益自選",
+        "彈性高"
+      ],
+      "limitations": "加碼須訂閱 Up 選（可能收月費）；上限與類別有限制。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/foodpanda-ubereats-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/unicard",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    }
+  ],
+  "backup": [
+    {
+      "id": "kgi-now",
+      "name": "凱基 NOW 卡",
+      "bank": "凱基銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "delivery_streaming",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.8,
+        "delivery_streaming": 3.8,
+        "mobile_pay": 3.8
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.8,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "自選類別加碼"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "自選類別（網購/外送/行支）加碼最高 3.8%。",
+      "highlights": [
+        "自選類別",
+        "彈性"
+      ],
+      "limitations": "須登錄選類；有月上限。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/all-credit-cards-suggest/",
+      "source_type": "fallback",
+      "official_url": "https://www.kgibank.com.tw/zh-tw/personal/credit-card/list/more-buy-credit-card",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "taishin-richart",
+      "name": "台新 @GoGo / Richart 卡",
+      "bank": "台新銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "mobile_pay",
+        "overseas",
+        "delivery_streaming"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.3,
+        "mobile_pay": 2.3,
+        "overseas": 3.3,
+        "delivery_streaming": 3.3
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.3,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "指定通路加碼有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "指定網購/外送/海外最高 3.3% 台新 Point，通路廣。",
+      "highlights": [
+        "網購強",
+        "海外無上限",
+        "外送影音通用"
+      ],
+      "limitations": "須登錄指定通路，一般消費僅 1%；加碼須符合活動通路清單。",
+      "valid_until": "2026-06-30",
+      "source": "https://rich01.com/foodpanda-ubereats-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001/",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      }
+    },
+    {
+      "id": "hsbc-diamond",
+      "name": "匯豐匯鑽卡",
+      "bank": "匯豐銀行",
+      "network": "Visa",
+      "categories": [
+        "delivery_streaming",
+        "online_shopping"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "delivery_streaming": 3.0,
+        "online_shopping": 3.0
+      },
+      "base_rate": 0.3,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 2000,
+        "period": "monthly",
+        "note": "指定串流/網購上限每期 2000 元"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "Netflix/YouTube/Spotify 等影音串流 3% 現金積點。",
+      "highlights": [
+        "影音串流強",
+        "回饋上限高"
+      ],
+      "limitations": "須登錄；一般消費回饋低，僅適合影音/網購重度使用者。",
+      "valid_until": "2026-06-30",
+      "source": "https://roo.cash/blog/video-platform-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://www.hsbc.com.tw/credit-cards/products/cashback-titanium/",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    },
+    {
+      "id": "sinopac-sport",
+      "name": "永豐 SPORT 卡",
+      "bank": "永豐銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "delivery_streaming"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.0,
+        "delivery_streaming": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 300,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "運動/網購/外送指定通路加碼 3%。",
+      "highlights": [
+        "網購加碼",
+        "運動通路"
+      ],
+      "limitations": "須登錄；上限偏低。",
+      "valid_until": "2026-12-31",
+      "source": "https://roo.cash/blog/online-shopping-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/list.html",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      }
+    }
+  ]
+}
