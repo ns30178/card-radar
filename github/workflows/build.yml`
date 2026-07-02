@@ -42,3 +42,6 @@ jobs:
           git add docs/data
           git diff --staged --quiet || git commit -m "chore: auto-update card data [skip ci]"
           git push
+```
+
+### `src/ingest.py`
