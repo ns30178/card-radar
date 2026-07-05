@@ -54,10 +54,25 @@ def filter_and_rank(cards):
             continue
         valid_cards.append(c)
 
+    # 【新增】抓出「國內無腦」高回饋神卡，作為後備墊檔名單
+    general_cards = [c for c in valid_cards if "domestic_general" in c.get("categories", [])]
+    general_cards.sort(key=lambda c: c.get("effective_rate", 0), reverse=True)
+
     result = {}
     for cat in config.CATEGORIES:
+        # 1. 抓出精準符合該分類的卡片
         pool = [c for c in valid_cards if cat in c.get("categories", [])]
         pool.sort(key=lambda c: c.get("scenario_rates", {}).get(cat, c.get("effective_rate", 0)), reverse=True)
+
+        # 2. 【核心修復】自動補齊機制：如果該分類的卡片未滿 TOP_N (10張)，用國內無腦卡補滿
+        if len(pool) < config.TOP_N:
+            existing_ids = {c.get("id") for c in pool}
+            for gc in general_cards:
+                if len(pool) >= config.TOP_N:
+                    break
+                if gc.get("id") not in existing_ids:
+                    pool.append(gc)
+
         top = pool[: config.TOP_N]
         result[cat] = {
             "label": config.CATEGORIES[cat]["label"],
