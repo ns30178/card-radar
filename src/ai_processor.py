@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-"""AI 處理大腦 (AI Processing)。
-
-職責：把 PTT 半結構化文章，抽取/正規化成與保底資料庫相同 schema 的卡片物件。
-
-容錯機制（解決伺服器不穩定的痛點）：
-- 智慧煞車：遇到 429 流量限制，自動冷卻休眠 RATE_LIMIT_COOLDOWN_SEC 秒。
-- 多模型備援：主模型（flash）掛掉就自動換備援（pro）。
-- 全程 try/except：AI 整段失敗也不會中斷主流程（回傳空 list，交由保底墊檔）。
-"""
 import json
 import os
 import sys
@@ -21,40 +12,44 @@ try:
 except ImportError:
     genai = None
 
+PROMPT_TEMPLATE = """你是信用卡回饋資料的結構化引擎。以下是一篇 PTT 信用卡情報文。
+請抽取文中「所有提到」的信用卡權益，並輸出**嚴格的 JSON 陣列 (Array of objects)**。如果文中提到 3 張卡，就輸出 3 個物件。
 
-PROMPT_TEMPLATE = """你是信用卡回饋資料的結構化引擎。以下是 PTT 信用卡版的一篇文章。
-請抽取其中「單一張信用卡」的回饋資訊，並輸出**嚴格 JSON**（不要 markdown 圍欄）。
+【分類嚴格定義】
+"categories" 陣列只能從以下 12 類挑選，請精準對應：
+1. cashback (只要主打現金或等值點數回饋皆算)
+2. overseas (海外一般) / japan_korea (日韓) / europe_us (歐美)
+3. miles (主打哩程累積) / online_shopping (網購、電商)
+4. line_pay (限提到 LINE Pay) / jko_pay (限提到街口) / px_pay (限提到全支付) / apple_pay (限提到 Apple Pay 或 AP)
+5. domestic_general (國內一般消費) / delivery_streaming (外送與影音)
 
-輸出欄位：
+陣列內每個物件的輸出欄位：
 {{
   "id": "英文小寫-連字號 id",
   "name": "卡片全名",
   "bank": "發卡銀行",
   "network": "Visa/Mastercard/JCB",
-  "categories": ["從這 8 類挑選: overseas, japan_korea, europe_us, miles, online_shopping, mobile_pay, domestic_general, delivery_streaming"],
+  "categories": ["依照上述 12 類精準挑選，可複選"],
   "reward_type": "cash | miles | points",
-  "scenario_rates": {{"該卡適用情境": 回饋率數字(%)}},
+  "scenario_rates": {{"符合的 category_key": 回饋率數字(%)}},
   "base_rate": 基礎回饋率數字,
   "effective_rate": 該卡最高等值現金回饋率數字,
-  "mile_spec": {{"ntd_per_mile": 幾元1哩(哩程卡才填), "program": "航空計畫"}},
+  "mile_spec": {{"ntd_per_mile": 幾元1哩, "program": "航空計畫"}},
   "cap": {{"amount": 每期上限金額或null, "period": "monthly/none", "note": "說明"}},
   "conditions": {{"need_register": true/false, "need_digital_account": true/false, "min_spend": 門檻金額, "mobile_pay_required": true/false}},
   "annual_fee": {{"amount": 年費, "waivable": true/false, "waive_condition": "減免條件"}},
-  "summary": "一句話重點摘要（給前端當標題）",
+  "summary": "一句話重點摘要",
   "highlights": ["賣點1", "賣點2"],
-  "limitations": "把複雜的上限/登錄/門檻限制濃縮成一段白話",
-  "valid_until": "YYYY-MM-DD 活動到期日",
-  "official_url": "該卡發卡銀行的官方介紹網址(找不到就填銀行信用卡首頁)",
-  "travel_insurance": {{"has": true/false, "note": "旅遊平安險/旅遊不便險說明，沒有就寫無"}},
-  "source_type": "ptt"
+  "limitations": "把複雜的上限/登錄/門檻限制濃縮成一段白話。若有換行請使用 \\n",
+  "valid_until": "YYYY-MM-DD",
+  "official_url": "官方介紹網址",
+  "travel_insurance": {{"has": true/false, "note": "旅平險說明"}}
 }}
 
-若文章無法判斷為單一張卡的回饋情報，請輸出 {{}}。
+若無法判斷為信用卡情報，請輸出 []。
 文章標題：{title}
 文章內文：{body}
-來源連結：{link}
 """
-
 
 def _configure():
     api_key = os.environ.get(config.GEMINI_API_KEY_ENV, "")
@@ -63,20 +58,16 @@ def _configure():
     genai.configure(api_key=api_key)
     return True
 
-
 def _is_rate_limit(err) -> bool:
     s = str(err).lower()
     return "429" in s or "quota" in s or "rate" in s or "resource_exhausted" in s
 
-
 def _call_one(entry):
-    """對單篇文章跑 AI，含多模型備援 + 智慧煞車。回傳 dict 或 None。"""
     prompt = PROMPT_TEMPLATE.format(
         title=entry.get("title", ""),
-        body=entry.get("summary", "")[:4000],
-        link=entry.get("link", ""),
+        body=entry.get("summary", "")[:4000]
     )
-    for model_name in config.AI_MODELS:                 # 多模型備援
+    for model_name in config.AI_MODELS:
         for attempt in range(config.MAX_RETRIES_PER_MODEL):
             try:
                 model = genai.GenerativeModel(model_name)
@@ -86,41 +77,34 @@ def _call_one(entry):
                     text = text.strip("`").split("\n", 1)[-1]
                     if text.endswith("```"):
                         text = text[:-3]
-                obj = json.loads(text)
-                if obj and obj.get("name"):
-                    obj.setdefault("source", entry.get("link", ""))
-                    obj["source_type"] = "ptt"
-                    return obj
-                return None
-            except Exception as err:                    # noqa: BLE001
-                if _is_rate_limit(err):                  # 智慧煞車
-                    print(f"[ai] {model_name} 遇到 429，冷卻 {config.RATE_LIMIT_COOLDOWN_SEC}s…")
+                
+                parsed_arr = json.loads(text)
+                if isinstance(parsed_arr, dict): 
+                    parsed_arr = [parsed_arr]
+                
+                valid_cards = []
+                for obj in parsed_arr:
+                    if obj and obj.get("name"):
+                        obj.setdefault("source", entry.get("link", ""))
+                        obj["source_type"] = "ptt"
+                        valid_cards.append(obj)
+                return valid_cards
+            except Exception as err:
+                if _is_rate_limit(err):
                     time.sleep(config.RATE_LIMIT_COOLDOWN_SEC)
                     continue
-                print(f"[ai] {model_name} 第 {attempt+1} 次失敗：{err}")
-                break  # 非流量問題 → 換下一個模型
-    return None
-
+                break
+    return []
 
 def process_entries(entries):
-    """把 PTT 文章批次轉為卡片 list。任何情況都不拋例外。"""
-    if not entries:
-        return []
-    if not _configure():
-        print("[ai] 未設定 GEMINI_API_KEY 或未安裝 SDK，跳過 AI 解析（僅用保底庫）。")
-        return []
+    if not entries: return []
+    if not _configure(): return []
+    
     cards = []
     for e in entries:
-        try:
-            card = _call_one(e)
-            if card:
-                cards.append(card)
-        except Exception as err:  # noqa: BLE001
-            print(f"[ai] 單篇處理例外，略過：{err}")
+        results = _call_one(e)
+        if results:
+            cards.extend(results) 
+            
     print(f"[ai] AI 解析出 {len(cards)} 張卡片。")
     return cards
-
-
-if __name__ == "__main__":
-    sample = [{"title": "[情報] 某銀行海外 5% 回饋", "summary": "海外實體 5%...", "link": "http://x"}]
-    print(process_entries(sample))
