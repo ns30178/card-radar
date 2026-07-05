@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-05 16:17",
+  "updated_at": "2026-07-05 16:23",
   "disclaimer": "本站回饋資訊僅供參考，實際權益以各發卡銀行公告為準。",
   "categories": [
     {
@@ -12,55 +12,55 @@
       "key": "overseas",
       "label": "海外通用",
       "emoji": "🌍",
-      "count": 2
+      "count": 3
     },
     {
       "key": "japan_korea",
       "label": "日韓",
       "emoji": "🗾",
-      "count": 2
+      "count": 4
     },
     {
       "key": "europe_us",
       "label": "歐美",
       "emoji": "🗽",
-      "count": 0
+      "count": 2
     },
     {
       "key": "miles",
       "label": "哩程",
       "emoji": "✈️",
-      "count": 0
+      "count": 2
     },
     {
       "key": "online_shopping",
       "label": "網購",
       "emoji": "🛒",
-      "count": 2
+      "count": 3
     },
     {
       "key": "line_pay",
       "label": "LINE Pay",
       "emoji": "🟢",
-      "count": 3
+      "count": 4
     },
     {
       "key": "jko_pay",
       "label": "街口支付",
       "emoji": "🔴",
-      "count": 1
+      "count": 2
     },
     {
       "key": "px_pay",
       "label": "全支付",
       "emoji": "🐶",
-      "count": 1
+      "count": 3
     },
     {
       "key": "apple_pay",
       "label": "Apple Pay",
       "emoji": "🍎",
-      "count": 1
+      "count": 2
     },
     {
       "key": "domestic_general",
@@ -72,7 +72,7 @@
       "key": "delivery_streaming",
       "label": "外送影音",
       "emoji": "🍔",
-      "count": 0
+      "count": 2
     }
   ]
 }
