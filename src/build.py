@@ -1,273 +1,100 @@
-<!DOCTYPE html>
-<!-- 神卡雷達 v3：12大分類 + 比較總表 + 篩選器 + 官方搜尋 -->
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>神卡雷達｜信用卡回饋比較</title>
-<style>
-  :root{
-    --bg:#0f1220; --card:#1a1f36; --card2:#222842; --line:#2c3358;
-    --text:#eef1ff; --muted:#9aa3c7; --gold:#ffd166; --accent:#6c8cff;
-    --hot:#ff6b6b; --good:#3ddc97; --radius:16px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:linear-gradient(180deg,#0b0e1a,#0f1220);color:var(--text);
-    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6;min-height:100vh;}
-  header{padding:28px 20px 8px;text-align:center}
-  header h1{font-size:1.8rem;letter-spacing:1px}
-  header h1 .r{color:var(--gold)}
-  header p{color:var(--muted);font-size:.9rem;margin-top:6px}
-  .wrap{max-width:1080px;margin:0 auto;padding:16px 16px 60px}
-  .tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px}
-  .tab{background:var(--card);border:1px solid var(--line);color:var(--muted);
-    padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem;transition:.15s}
-  .tab:hover{border-color:var(--accent);color:var(--text)}
-  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}
-  .tab.special.active{background:var(--gold);color:#3a2c00}
-  .filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 15px}
-  .filters .flabel{color:var(--muted);font-size:.82rem;align-self:center;margin-right:2px}
-  .chip{background:var(--card);border:1px solid var(--line);color:var(--muted);
-    padding:6px 12px;border-radius:999px;cursor:pointer;font-size:.82rem;transition:.15s;user-select:none}
-  .chip:hover{border-color:var(--good)}
-  .chip.on{background:var(--good);color:#04150d;border-color:var(--good);font-weight:700}
-  .updated{text-align:center;color:var(--muted);font-size:.78rem;margin-top:6px}
-  .section-title{display:flex;align-items:center;gap:8px;margin:26px 0 12px;font-size:1.15rem}
-  .section-title .pill{font-size:.72rem;background:var(--card2);color:var(--muted);
-    padding:2px 10px;border-radius:999px;border:1px solid var(--line)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
-  .cc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;transition:.18s;position:relative}
-  .cc:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.35)}
-  .cc .head{padding:16px 16px 12px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-  .rank{position:absolute;top:0;left:0;background:var(--gold);color:#3a2c00;font-weight:800;
-    font-size:.72rem;padding:3px 10px;border-bottom-right-radius:12px}
-  .cc.backup .rank{background:var(--card2);color:var(--muted)}
-  .cinfo h3{font-size:1.02rem;margin:2px 0 4px;padding-left:6px}
-  .cinfo .bank{color:var(--muted);font-size:.8rem;padding-left:6px}
-  .rate{text-align:right;flex-shrink:0}
-  .rate .num{font-size:1.6rem;font-weight:800;color:var(--good);line-height:1}
-  .rate .lbl{font-size:.68rem;color:var(--muted)}
-  .cc .summary{padding:0 16px 12px;color:#cdd4f5;font-size:.86rem}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
-  .tag{font-size:.72rem;background:var(--card2);border:1px solid var(--line);
-    color:var(--muted);padding:2px 8px;border-radius:6px}
-  .toggle{padding:8px 16px 14px;color:var(--accent);font-size:.82rem;cursor:pointer;user-select:none}
-  .detail{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--card2)}
-  .cc.open .detail{max-height:800px}
-  .detail .inner{padding:14px 16px;border-top:1px solid var(--line);font-size:.85rem}
-  .detail .row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}
-  .detail .row:last-child{border-bottom:none}
-  .detail .k{color:var(--muted); flex-shrink: 0;}
-  .detail .v{text-align:right;color:var(--text); max-width:65%;}
-  .warn{color:var(--gold)}
-  .ti{color:var(--good)}
-  .offbtn{display:block;text-align:center;margin:12px 0 2px;padding:9px 12px;
-    background:var(--accent);color:#fff;text-decoration:none;border-radius:10px;
-    font-size:.86rem;font-weight:700;transition:.15s}
-  .offbtn:hover{filter:brightness(1.12)}
-  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
-  table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:720px}
-  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-  th{background:var(--card2);color:var(--muted);cursor:pointer;user-select:none;position:sticky;top:0}
-  th:hover{color:var(--text)}
-  th .arrow{font-size:.7rem;color:var(--accent)}
-  td .rt{color:var(--good);font-weight:700}
-  tbody tr:hover{background:rgba(108,140,255,.08)}
-  .badge{font-size:.72rem;padding:2px 8px;border-radius:6px;border:1px solid var(--line);color:var(--muted)}
-  .badge.y{color:var(--good);border-color:var(--good)}
-  .badge.n{color:var(--hot);border-color:var(--hot)}
-  footer{border-top:1px solid var(--line);padding:22px 16px;color:var(--muted);font-size:.76rem;text-align:center;line-height:1.8}
-  .empty{color:var(--muted);text-align:center;padding:30px}
-</style>
-</head>
-<body>
-<header>
-  <h1>神卡<span class="r">雷達</span> 📡</h1>
-  <p>把各家複雜回饋，換算成同一把尺 —— 幫你找出「最高回饋、最適合」的那張卡</p>
-  <div class="updated" id="updated">資料讀取中...</div>
-</header>
-<div class="wrap">
-  <div class="tabs" id="tabs"></div>
-  <div class="filters" id="filters">
-    <span class="flabel">只看：</span>
-    <span class="chip" data-f="no_register">免登錄</span>
-    <span class="chip" data-f="no_cap">無上限</span>
-    <span class="chip" data-f="no_fee">免年費</span>
-    <span class="chip" data-f="no_digital">免數位帳戶</span>
-  </div>
-  <div id="content"></div>
-</div>
-<footer>
-  <div><strong>免責聲明</strong>：本站為個人非營利的資訊整理工具，非任何銀行之推廣或代辦。</div>
-  <div>所有回饋率、上限與活動期限僅供參考，實際權益、核卡條件與費用一律以各發卡銀行官方最新公告為準。</div>
-  <div>本站不涉及任何申辦、金流或個資蒐集，亦不對依本站資訊所做之決策負責。理性刷卡、量入為出、按期全額繳款。</div>
-  <div id="dataDisclaimer" class="warn"></div>
-</footer>
-<script>
-// 更新為 12 大精細分類
-const CATS = [
-  {key:"cashback",label:"現金回饋",emoji:"💰"},
-  {key:"overseas",label:"海外通用",emoji:"🌍"},
-  {key:"japan_korea",label:"日韓",emoji:"🗾"},
-  {key:"europe_us",label:"歐美",emoji:"🗽"},
-  {key:"miles",label:"哩程",emoji:"✈️"},
-  {key:"online_shopping",label:"網購",emoji:"🛒"},
-  {key:"line_pay",label:"LINE Pay",emoji:"🟢"},
-  {key:"jko_pay",label:"街口支付",emoji:"🔴"},
-  {key:"px_pay",label:"全支付",emoji:"🐶"},
-  {key:"apple_pay",label:"Apple Pay",emoji:"🍎"},
-  {key:"domestic_general",label:"國內無腦",emoji:"🏠"},
-  {key:"delivery_streaming",label:"外送影音",emoji:"🍔"},
-];
-const CATMAP = Object.fromEntries(CATS.map(c=>[c.key,c]));
-let ALL_CARDS = [];
-let CUR = "cashback"; // 預設首頁
-const FILTERS = {no_register:false,no_cap:false,no_fee:false,no_digital:false};
-let sortKey = "rate", sortDir = -1;
+# -*- coding: utf-8 -*-
+"""主流程：抓取 → AI 解析 → 合併保底 → 換算篩選排序 → 拋轉靜態 JSON → Telegram 通知。"""
+import datetime
+import json
+import os
+import sys
+import urllib.parse
+import urllib.request
 
-function passFilters(c){
-  const cond=c.conditions||{}, cap=c.cap||{}, fee=c.annual_fee||{};
-  if(FILTERS.no_register && cond.need_register) return false;
-  if(FILTERS.no_cap && cap.amount) return false;
-  if(FILTERS.no_fee && !(fee.amount===0 || fee.waivable)) return false;
-  if(FILTERS.no_digital && cond.need_digital_account) return false;
-  return true;
-}
-function fmtCap(cap){
-  if(!cap||!cap.amount) return "無上限";
-  return (cap.period==="monthly"?"每月":"每期")+"上限 "+cap.amount+" 元";
-}
-function boolTxt(b){return b?"是":"否";}
-const RTMAP={cash:'現金',miles:'哩程',points:'點數'};
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import config
+from src import ingest, ai_processor, logic
 
-function cardHTML(card, rank, isBackup, cat){
-  const rate = (card.scenario_rates&&card.scenario_rates[cat]) || card.effective_rate || 0;
-  const tags=(card.highlights||[]).map(h=>'<span class="tag">'+h+'</span>').join("");
-  const cond=card.conditions||{}, fee=card.annual_fee||{}, ti=card.travel_insurance||{};
-  
-  // 處理換行符號
-  let desc = card.limitations || '請參閱官方公告';
-  desc = desc.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
-  
-  // 動態生成 Google 搜尋連結 (模擬官方申辦)
-  let searchQuery = encodeURIComponent(`${card.bank||''} ${card.name} 信用卡 官方網站`);
-  let officialLink = `https://www.google.com/search?q=${searchQuery}`;
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-  return '<div class="cc '+(isBackup?'backup':'')+'">'
-    +'<div class="rank">'+(isBackup?'🔥':'👑')+' No.'+rank+'</div>'
-    +'<div class="head" onclick="this.parentElement.classList.toggle(\'open\')">'
-    +'<div class="cinfo"><h3>'+card.name+'</h3><div class="bank">'+(card.bank||'')+' · '+(card.network||'')+'</div></div>'
-    +'<div class="rate"><div class="num">'+rate+'%</div><div class="lbl">等值回饋</div></div></div>'
-    +'<div class="summary">'+(card.summary||'')+'</div>'
-    +'<div class="tags">'+tags+'</div>'
-    +'<div class="toggle" onclick="this.closest(\'.cc\').classList.toggle(\'open\')">＋ 點擊展開詳細回饋限制</div>'
-    +'<div class="detail"><div class="inner">'
-    +'<div class="row"><span class="k">回饋型態</span><span class="v">'+(RTMAP[card.reward_type]||card.reward_type||'-')+'</span></div>'
-    +'<div class="row"><span class="k">回饋上限</span><span class="v">'+fmtCap(card.cap)+'</span></div>'
-    +'<div class="row"><span class="k">需要登錄</span><span class="v">'+boolTxt(cond.need_register)+'</span></div>'
-    +'<div class="row"><span class="k">需數位帳戶</span><span class="v">'+boolTxt(cond.need_digital_account)+'</span></div>'
-    +'<div class="row"><span class="k">消費門檻</span><span class="v">'+(cond.min_spend?cond.min_spend+' 元':'無')+'</span></div>'
-    +'<div class="row"><span class="k">年費</span><span class="v">'+(fee.amount?fee.amount+' 元（'+(fee.waive_condition||'')+'）':'免年費')+'</span></div>'
-    +'<div class="row"><span class="k">活動到期</span><span class="v">'+(card.valid_until||'-')+'</span></div>'
-    +'<div class="row"><span class="k">旅遊平安險</span><span class="v ti">'+(ti.has?('✅ 最高 '+(ti.amount||'')):'—')+'</span></div>'
-    +(ti.has?('<div class="row"><span class="k"></span><span class="v" style="max-width:75%;color:var(--muted);font-size:.8rem">'+(ti.note||'')+'</span></div>'):'')
-    +'<div class="row"><span class="k warn">重點限制</span><span class="v warn">'+desc+'</span></div>'
-    +'<a class="offbtn" href="'+officialLink+'" target="_blank" rel="noopener noreferrer">🔗 查詢官方詳細說明</a>'
-    +'</div></div></div>';
-}
 
-function renderCategory(cat){
-  const d = window.__DATA__.cats[cat];
-  const content=document.getElementById("content");
-  if(!d){content.innerHTML='<div class="empty">此情境資料尚未產生。</div>';return;}
-  const p=(d.primary||[]).filter(passFilters);
-  const b=(d.backup||[]).filter(passFilters);
-  const pHTML=p.map((c,i)=>cardHTML(c,i+1,false,cat)).join("");
-  const bHTML=b.map((c,i)=>cardHTML(c,i+1+p.length,true,cat)).join("");
-  content.innerHTML=
-    '<div class="section-title">👑 主力推薦 <span class="pill">回饋最猛</span></div>'
-    +'<div class="grid">'+(pHTML||'<div class="empty">目前篩選條件下無符合卡片</div>')+'</div>'
-    +'<div class="section-title">🔥 備用神卡 <span class="pill">補位好選擇</span></div>'
-    +'<div class="grid">'+(bHTML||'<div class="empty">目前篩選條件下無符合卡片</div>')+'</div>';
-}
+def _write_json(rel_path, obj):
+    path = os.path.join(ROOT, rel_path)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+    print(f"[build] 寫出 {rel_path}")
 
-function renderTable(){
-  const content=document.getElementById("content");
-  let rows = ALL_CARDS.filter(passFilters).map(c=>{
-    const cats=(c.categories||[]).map(k=>CATMAP[k]?CATMAP[k].emoji:'').join('');
-    return {
-      name:c.name, bank:c.bank||'', rt:RTMAP[c.reward_type]||'',
-      rate:c.effective_rate||0, cap:(c.cap&&c.cap.amount)?c.cap.amount:Infinity,
-      capTxt:fmtCap(c.cap), reg:!!(c.conditions&&c.conditions.need_register),
-      fee:(c.annual_fee&&c.annual_fee.amount)||0, cats
-    };
-  });
-  rows.sort((a,b)=>{
-    let A=a[sortKey],B=b[sortKey];
-    if(typeof A==='string'){return A.localeCompare(B,'zh-Hant')*sortDir;}
-    return (A-B)*sortDir;
-  });
-  const arrow=k=> sortKey===k ? (sortDir<0?' ▼':' ▲') : '';
-  const body = rows.map(r=>'<tr>'
-    +'<td>'+r.name+'</td><td>'+r.bank+'</td><td>'+r.cats+'</td>'
-    +'<td class="rt">'+r.rate+'%</td><td>'+r.rt+'</td>'
-    +'<td>'+r.capTxt+'</td>'
-    +'<td><span class="badge '+(r.reg?'n':'y')+'">'+(r.reg?'需登錄':'免登錄')+'</span></td>'
-    +'<td>'+(r.fee?r.fee+' 元':'<span class="badge y">免年費</span>')+'</td></tr>').join("");
-  content.innerHTML=
-    '<div class="section-title">📊 全卡回饋比較總表 <span class="pill">點欄位標題可排序 · 共 '+rows.length+' 張</span></div>'
-    +'<div class="tablewrap"><table><thead><tr>'
-    +'<th onclick="setSort(\'name\')">卡名<span class="arrow">'+arrow('name')+'</span></th>'
-    +'<th>銀行</th><th>適用情境</th>'
-    +'<th onclick="setSort(\'rate\')">最高等值回饋<span class="arrow">'+arrow('rate')+'</span></th>'
-    +'<th>型態</th><th onclick="setSort(\'cap\')">回饋上限<span class="arrow">'+arrow('cap')+'</span></th>'
-    +'<th>登錄</th>'
-    +'<th onclick="setSort(\'fee\')">年費<span class="arrow">'+arrow('fee')+'</span></th>'
-    +'</tr></thead><tbody>'+(body||'<tr><td colspan="8" class="empty">無符合卡片</td></tr>')+'</tbody></table></div>';
-}
 
-function setSort(k){ if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='name')?1:-1;} render(); }
-function render(){ CUR==="__all__" ? renderTable() : renderCategory(CUR); }
+def notify_telegram(text):
+    """建置完成後推播 Telegram。未設定 token/chat_id 則自動略過，且絕不讓通知失敗中斷流程。"""
+    token = os.environ.get(config.TELEGRAM_TOKEN_ENV, "")
+    chat_id = os.environ.get(config.TELEGRAM_CHAT_ID_ENV, "")
+    if not token or not chat_id:
+        print("[notify] 未設定 Telegram Secrets，略過通知。")
+        return
+    try:
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = urllib.parse.urlencode({
+            "chat_id": chat_id,
+            "text": text,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": "true",
+        }).encode()
+        with urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=20) as r:
+            print(f"[notify] Telegram 已送出（HTTP {r.status}）。")
+    except Exception as ex:
+        print(f"[notify] Telegram 發送失敗（略過）：{ex}")
 
-const tabsEl=document.getElementById("tabs");
-CATS.forEach((c,i)=>{
-  const t=document.createElement("div");
-  t.className="tab"+(i===0?" active":""); t.textContent=c.emoji+" "+c.label;
-  t.onclick=()=>{selectTab(t,c.key);};
-  tabsEl.appendChild(t);
-});
-const allTab=document.createElement("div");
-allTab.className="tab special"; allTab.textContent="📊 比較總表";
-allTab.onclick=()=>{selectTab(allTab,"__all__");};
-tabsEl.appendChild(allTab);
 
-function selectTab(el,key){
-  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active"); CUR=key; render();
-}
+def main():
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-document.querySelectorAll("#filters .chip").forEach(ch=>{
-  ch.onclick=()=>{const f=ch.dataset.f;FILTERS[f]=!FILTERS[f];ch.classList.toggle("on",FILTERS[f]);render();};
-});
+    # 1) 資料獲取層：PTT + 保底
+    ptt_entries, fallback_cards = ingest.gather()
 
-async function boot(){
-  window.__DATA__={cats:{}};
-  try{
-    const idx=await (await fetch("data/index.json?t="+Date.now())).json();
-    document.getElementById("updated").textContent="資料同步時間："+(idx.updated_at||"");
-    document.getElementById("dataDisclaimer").textContent=idx.disclaimer||"";
-  }catch(e){}
-  try{
-    ALL_CARDS=((await (await fetch("data/all_cards.json?t="+Date.now())).json()).cards)||[];
-  }catch(e){ALL_CARDS=[];}
-  
-  await Promise.all(CATS.map(async c=>{
-    try{ window.__DATA__.cats[c.key]=await (await fetch("data/"+c.key+"_top10.json?t="+Date.now())).json(); }catch(e){}
-  }));
-  render();
-}
-boot();
-</script>
-</body>
-</html>
+    # 2) AI 處理大腦：把 PTT 文章轉成卡片（失敗自動空手而回）
+    ptt_cards = ai_processor.process_entries(ptt_entries)
+
+    # 3) 合併（PTT 新資料 + 保底墊檔）
+    all_cards = ptt_cards + fallback_cards
+    print(f"[build] 合併後共 {len(all_cards)} 張（PTT {len(ptt_cards)} + 保底 {len(fallback_cards)}）。")
+
+    # 4) 換算 + 門檻過濾 + 分類排序
+    ranked = logic.filter_and_rank(all_cards)
+
+    # 5) 拋轉靜態 JSON（前端展示層直接讀取）
+    disclaimer = "本站回饋資訊僅供參考，實際權益以各發卡銀行公告為準。"
+    index = {"updated_at": now, "disclaimer": disclaimer, "categories": []}
+    for cat, data in ranked.items():
+        _write_json(f"{config.OUTPUT_DIR}/{cat}_top10.json", {
+            "category": cat, "label": data["label"], "emoji": data["emoji"],
+            "updated_at": now, "primary": data["primary"], "backup": data["backup"],
+        })
+        index["categories"].append({
+            "key": cat, "label": data["label"], "emoji": data["emoji"],
+            "count": len(data["primary"]) + len(data["backup"]),
+        })
+
+    normalized = [logic.normalize_card(c) for c in logic.dedupe(all_cards)]
+    _write_json(f"{config.OUTPUT_DIR}/all_cards.json", {
+        "updated_at": now, "disclaimer": disclaimer, "cards": normalized,
+    })
+    _write_json(f"{config.OUTPUT_DIR}/index.json", index)
+    print("[build] 完成。")
+
+    # 6) Telegram 通知
+    new_names = [c.get("name", "") for c in ptt_cards if c.get("name")]
+    if new_names:
+        shown = "、".join(new_names[:8]) + ("…" if len(new_names) > 8 else "")
+        new_line = f"🆕 本期 PTT 新卡（{len(new_names)}）：{shown}\n"
+    else:
+        new_line = "🆕 本期無 PTT 新卡，維持既有資料\n"
+    msg = (
+        "✅ <b>神卡雷達更新完成</b>\n"
+        f"🕒 時間：{now}\n"
+        f"📊 收錄卡片：{len(normalized)} 張（PTT 新增 {len(ptt_cards)} / 保底 {len(fallback_cards)}）\n"
+        f"{new_line}"
+        f"🔗 前往查看：{config.SITE_URL}"
+    )
+    notify_telegram(msg)
+
+
+if __name__ == "__main__":
+    main()
