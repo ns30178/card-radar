@@ -1,7 +1,49 @@
 {
+  "category": "cashback",
+  "label": "現金回饋",
+  "emoji": "💰",
   "updated_at": "2026-07-05 16:17",
-  "disclaimer": "本站回饋資訊僅供參考，實際權益以各發卡銀行公告為準。",
-  "cards": [
+  "primary": [
+    {
+      "id": "fubon-jcard",
+      "name": "富邦 J 卡",
+      "bank": "台北富邦銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea",
+        "overseas",
+        "line_pay",
+        "cashback"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "japan_korea": 6.0,
+        "overseas": 3.0,
+        "line_pay": 1.7
+      },
+      "base_rate": 1.0,
+      "effective_rate": 6.0,
+      "cap": {
+        "amount": 1000,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true
+      },
+      "summary": "日、韓實體商店最高 6%，LINE Pay 1.7%。",
+      "highlights": [
+        "日韓神卡",
+        "JCB 通用"
+      ],
+      "limitations": "日韓加碼須登錄且限實體通路；非日韓消費回饋普通。",
+      "valid_until": "2026-12-31",
+      "source_type": "fallback"
+    },
     {
       "id": "taishin-richart-gogo",
       "name": "台新 Richart @GoGo卡",
@@ -87,46 +129,6 @@
       "source_type": "fallback"
     },
     {
-      "id": "fubon-jcard",
-      "name": "富邦 J 卡",
-      "bank": "台北富邦銀行",
-      "network": "JCB",
-      "categories": [
-        "japan_korea",
-        "overseas",
-        "line_pay",
-        "cashback"
-      ],
-      "reward_type": "points",
-      "scenario_rates": {
-        "japan_korea": 6.0,
-        "overseas": 3.0,
-        "line_pay": 1.7
-      },
-      "base_rate": 1.0,
-      "effective_rate": 6.0,
-      "cap": {
-        "amount": 1000,
-        "period": "monthly"
-      },
-      "conditions": {
-        "need_register": true,
-        "need_digital_account": false
-      },
-      "annual_fee": {
-        "amount": 0,
-        "waivable": true
-      },
-      "summary": "日、韓實體商店最高 6%，LINE Pay 1.7%。",
-      "highlights": [
-        "日韓神卡",
-        "JCB 通用"
-      ],
-      "limitations": "日韓加碼須登錄且限實體通路；非日韓消費回饋普通。",
-      "valid_until": "2026-12-31",
-      "source_type": "fallback"
-    },
-    {
       "id": "cathay-cube",
       "name": "國泰 CUBE 卡",
       "bank": "國泰世華",
@@ -206,5 +208,6 @@
       "valid_until": "2026-12-31",
       "source_type": "fallback"
     }
-  ]
+  ],
+  "backup": []
 }

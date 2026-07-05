@@ -1,7 +1,9 @@
 {
+  "category": "line_pay",
+  "label": "LINE Pay",
+  "emoji": "🟢",
   "updated_at": "2026-07-05 16:17",
-  "disclaimer": "本站回饋資訊僅供參考，實際權益以各發卡銀行公告為準。",
-  "cards": [
+  "primary": [
     {
       "id": "taishin-richart-gogo",
       "name": "台新 Richart @GoGo卡",
@@ -125,86 +127,7 @@
       "limitations": "日韓加碼須登錄且限實體通路；非日韓消費回饋普通。",
       "valid_until": "2026-12-31",
       "source_type": "fallback"
-    },
-    {
-      "id": "cathay-cube",
-      "name": "國泰 CUBE 卡",
-      "bank": "國泰世華",
-      "network": "Visa",
-      "categories": [
-        "domestic_general",
-        "overseas",
-        "online_shopping",
-        "apple_pay",
-        "cashback"
-      ],
-      "reward_type": "points",
-      "scenario_rates": {
-        "domestic_general": 1.0,
-        "overseas": 3.0,
-        "online_shopping": 3.0,
-        "apple_pay": 3.0,
-        "cashback": 3.0
-      },
-      "base_rate": 0.3,
-      "effective_rate": 3.0,
-      "cap": {
-        "amount": null,
-        "period": "none"
-      },
-      "conditions": {
-        "need_register": true,
-        "need_digital_account": false
-      },
-      "annual_fee": {
-        "amount": 0,
-        "waivable": true
-      },
-      "summary": "權益自由切換，指定通路最高 3% 無上限。",
-      "highlights": [
-        "權益自選",
-        "ApplePay 支援"
-      ],
-      "limitations": "須於 App 切換方案，當日切換隔日生效。",
-      "valid_until": "2026-12-31",
-      "source_type": "fallback"
-    },
-    {
-      "id": "esun-kumamon",
-      "name": "玉山熊本熊卡",
-      "bank": "玉山銀行",
-      "network": "JCB",
-      "categories": [
-        "japan_korea",
-        "cashback"
-      ],
-      "reward_type": "cash",
-      "scenario_rates": {
-        "japan_korea": 8.5,
-        "cashback": 2.0
-      },
-      "base_rate": 1.0,
-      "effective_rate": 8.5,
-      "cap": {
-        "amount": 500,
-        "period": "monthly"
-      },
-      "conditions": {
-        "need_register": true,
-        "need_digital_account": false
-      },
-      "annual_fee": {
-        "amount": 0,
-        "waivable": true
-      },
-      "summary": "日本消費加碼最高 8.5%，雙幣卡免手續費。",
-      "highlights": [
-        "日本神卡",
-        "雙幣優勢"
-      ],
-      "limitations": "指定加碼通路有上限，需登錄。",
-      "valid_until": "2026-12-31",
-      "source_type": "fallback"
     }
-  ]
+  ],
+  "backup": []
 }
