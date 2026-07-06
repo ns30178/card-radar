@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-"""主流程：抓取 → AI 解析 → 合併保底 → 換算篩選排序 → 拋轉靜態 JSON → Telegram 通知。"""
+"""主流程：抓取 → AI 解析 → 合併保底 → 換算篩選排序 → 拋轉靜態 JSON → Telegram 通知。
+
+由 GitHub Actions（cron-job.org 每月喚醒）執行。
+產出：
+- docs/data/all_cards.json          全部通過門檻的卡片
+- docs/data/<category>_top10.json   每情境前 10 名（含主力/備用拆分）
+- docs/data/index.json              情境清單 + 更新時間 + 免責聲明
+"""
 import datetime
 import json
 import os
@@ -39,7 +46,7 @@ def notify_telegram(text):
         }).encode()
         with urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=20) as r:
             print(f"[notify] Telegram 已送出（HTTP {r.status}）。")
-    except Exception as ex:
+    except Exception as ex:  # noqa: BLE001 - 通知失敗不影響建置成敗
         print(f"[notify] Telegram 發送失敗（略過）：{ex}")
 
 
@@ -72,20 +79,21 @@ def main():
             "count": len(data["primary"]) + len(data["backup"]),
         })
 
-    normalized = [logic.normalize_card(c) for c in logic.dedupe(all_cards)]
+    # 用 active_cards：去重 + 正規化 + 過期/停發自動下架（與排行榜一致）
+    normalized = logic.active_cards(all_cards)
     _write_json(f"{config.OUTPUT_DIR}/all_cards.json", {
         "updated_at": now, "disclaimer": disclaimer, "cards": normalized,
     })
     _write_json(f"{config.OUTPUT_DIR}/index.json", index)
     print("[build] 完成。")
 
-    # 6) Telegram 通知
+    # 6) Telegram 通知（含本月 PTT 新卡清單，讓你一眼看出資料有沒有長新的）
     new_names = [c.get("name", "") for c in ptt_cards if c.get("name")]
     if new_names:
         shown = "、".join(new_names[:8]) + ("…" if len(new_names) > 8 else "")
-        new_line = f"🆕 本期 PTT 新卡（{len(new_names)}）：{shown}\n"
+        new_line = f"🆕 本月 PTT 新卡（{len(new_names)}）：{shown}\n"
     else:
-        new_line = "🆕 本期無 PTT 新卡，維持既有資料\n"
+        new_line = "🆕 本月無 PTT 新卡，維持既有資料\n"
     msg = (
         "✅ <b>神卡雷達更新完成</b>\n"
         f"🕒 時間：{now}\n"
