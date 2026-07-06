@@ -1,0 +1,419 @@
+{
+  "category": "japan_korea",
+  "label": "日韓",
+  "emoji": "🗾",
+  "updated_at": "2026-07-06 08:37",
+  "primary": [
+    {
+      "id": "dbs-eco",
+      "name": "星展 eco 永續卡",
+      "bank": "星展銀行",
+      "network": "Mastercard",
+      "categories": [
+        "overseas",
+        "japan_korea",
+        "europe_us"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "overseas": 3.0,
+        "japan_korea": 7.5,
+        "europe_us": 7.5
+      },
+      "base_rate": 1.0,
+      "effective_rate": 7.5,
+      "cap": {
+        "amount": 1500,
+        "period": "monthly",
+        "note": "加碼 4% 段有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日韓泰星美歐當地實體最高 7.5%（1% 基礎 + 加碼 4% + 活動）。",
+      "highlights": [
+        "全球加碼",
+        "歐美也適用",
+        "回饋率天花板"
+      ],
+      "limitations": "須登錄且限指定地區實體；加碼段有上限，超過回落 1%。",
+      "valid_until": "2026-03-31",
+      "source": "https://roo.cash/blog/overseas-spending-creditcard-recommendation/",
+      "source_type": "fallback",
+      "official_url": "https://www.dbs.com.tw/personal-zh/cards/dbs_eco/index.html",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "fubon-jcard",
+      "name": "台北富邦 J 卡",
+      "bank": "台北富邦銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea",
+        "overseas"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "japan_korea": 6.0,
+        "overseas": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 6.0,
+      "cap": {
+        "amount": 1000,
+        "period": "monthly",
+        "note": "日韓泰加碼有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日、韓、泰實體商店最高 6%，日韓旅遊首選。",
+      "highlights": [
+        "日韓神卡",
+        "JCB 在日本通用"
+      ],
+      "limitations": "須登錄且限實體通路；加碼有月上限，非日韓消費回饋普通。",
+      "valid_until": "2026-12-31",
+      "source": "https://lixianglife.net/creditcard/1903/",
+      "source_type": "fallback",
+      "official_url": "https://www.fubon.com/banking/personal/credit_card/all_card/omiyage/omiyage.htm",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "ctbc-linepay",
+      "name": "中信 LINE Pay 卡",
+      "bank": "中國信託",
+      "network": "Visa",
+      "categories": [
+        "mobile_pay",
+        "overseas",
+        "japan_korea"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "mobile_pay": 2.0,
+        "overseas": 2.8,
+        "japan_korea": 5.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": null,
+        "period": "none",
+        "note": "海外 2.8% 無上限，加碼段有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "海外實體 2.8% LINE POINTS 無上限，美日韓泰登錄後升級 5%。",
+      "highlights": [
+        "LINE POINTS",
+        "海外無上限",
+        "加碼日韓"
+      ],
+      "limitations": "升級 5% 須於期限前登錄活動；點數為 LINE POINTS 非現金。",
+      "valid_until": "2026-06-30",
+      "source": "https://lixianglife.net/creditcard/1903/",
+      "source_type": "fallback",
+      "official_url": "https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_product/cc_introduction_index/C_LINEPay.html",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay"
+      ]
+    },
+    {
+      "id": "fubon-omiyage",
+      "name": "富邦 OMIYAGE 卡",
+      "bank": "台北富邦銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea",
+        "overseas"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "japan_korea": 5.0,
+        "overseas": 2.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": 800,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日本消費加碼最高 5%，日系旅遊實用。",
+      "highlights": [
+        "日本加碼",
+        "JCB"
+      ],
+      "limitations": "須登錄；地區限定。",
+      "valid_until": "2026-12-31",
+      "source": "https://creditcards.com.tw/creditcard/japan-korea-recommended-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.fubon.com/banking/personal/credit_card/all_card/omiyage/omiyage.htm",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "hncb-jcb",
+      "name": "華南日韓卡",
+      "bank": "華南銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "japan_korea": 4.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 4.0,
+      "cap": {
+        "amount": 500,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日韓實體消費加碼 4%。",
+      "highlights": [
+        "日韓加碼"
+      ],
+      "limitations": "須登錄；地區與通路限定。",
+      "valid_until": "2026-12-31",
+      "source": "https://creditcards.com.tw/creditcard/japan-korea-recommended-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.hncb.com.tw/wps/portal/HNCB/card",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    }
+  ],
+  "backup": [
+    {
+      "id": "sinopac-bibao-jcb",
+      "name": "永豐幣倍 J 卡",
+      "bank": "永豐銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea",
+        "overseas"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "japan_korea": 4.0,
+        "overseas": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 4.0,
+      "cap": {
+        "amount": 600,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日韓 JCB 通路加碼 4%。",
+      "highlights": [
+        "日韓加碼",
+        "JCB"
+      ],
+      "limitations": "須登錄；地區限定。",
+      "valid_until": "2026-06-30",
+      "source": "https://rich01.com/credit-card-oversea/",
+      "source_type": "fallback",
+      "official_url": "https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "esun-kumamon",
+      "name": "玉山熊本熊卡",
+      "bank": "玉山銀行",
+      "network": "JCB",
+      "categories": [
+        "japan_korea",
+        "overseas"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "japan_korea": 3.0,
+        "overseas": 2.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "日本加碼有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "日本消費加碼、JCB 在日通用，日韓旅遊實用卡。",
+      "highlights": [
+        "日本加碼",
+        "JCB 通用"
+      ],
+      "limitations": "須登錄；加碼有上限，非日本地區回饋普通。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/credit-card-oversea/",
+      "source_type": "fallback",
+      "official_url": "https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/kumamon_card",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "rakuten-card",
+      "name": "樂天信用卡",
+      "bank": "樂天銀行",
+      "network": "JCB",
+      "categories": [
+        "online_shopping",
+        "japan_korea"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "online_shopping": 2.0,
+        "japan_korea": 2.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 2.0,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "樂天市場與日本消費加碼，樂天點數通用。",
+      "highlights": [
+        "樂天生態",
+        "日本友善"
+      ],
+      "limitations": "站外回饋普通；點數限樂天體系。",
+      "valid_until": "2026-12-31",
+      "source": "https://roo.cash/blog/online-shopping-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://www.card.rakuten.com.tw/corp/product/",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    }
+  ]
+}

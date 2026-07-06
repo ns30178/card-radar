@@ -1,0 +1,54 @@
+{
+  "updated_at": "2026-07-06 08:37",
+  "disclaimer": "本站回饋資訊僅供參考，實際權益以各發卡銀行公告為準。",
+  "categories": [
+    {
+      "key": "overseas",
+      "label": "海外通用",
+      "emoji": "🌍",
+      "count": 10
+    },
+    {
+      "key": "japan_korea",
+      "label": "日韓",
+      "emoji": "🗾",
+      "count": 8
+    },
+    {
+      "key": "europe_us",
+      "label": "歐美",
+      "emoji": "🗽",
+      "count": 3
+    },
+    {
+      "key": "miles",
+      "label": "哩程",
+      "emoji": "✈️",
+      "count": 7
+    },
+    {
+      "key": "online_shopping",
+      "label": "網購",
+      "emoji": "🛒",
+      "count": 10
+    },
+    {
+      "key": "mobile_pay",
+      "label": "行動支付",
+      "emoji": "📱",
+      "count": 10
+    },
+    {
+      "key": "domestic_general",
+      "label": "國內無腦",
+      "emoji": "🏠",
+      "count": 10
+    },
+    {
+      "key": "delivery_streaming",
+      "label": "外送影音",
+      "emoji": "🍔",
+      "count": 9
+    }
+  ]
+}

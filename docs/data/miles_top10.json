@@ -1,0 +1,389 @@
+{
+  "category": "miles",
+  "label": "哩程",
+  "emoji": "✈️",
+  "updated_at": "2026-07-06 08:37",
+  "primary": [
+    {
+      "id": "eva-infinity",
+      "name": "長榮航空聯名卡（鑽石卡）",
+      "bank": "多家發卡",
+      "network": "Mastercard",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 10,
+        "program": "長榮無限萬哩遊"
+      },
+      "scenario_rates": {
+        "miles": 5.0,
+        "overseas": 5.0
+      },
+      "base_rate": 0.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": null,
+        "period": "none",
+        "note": "哩程累積無上限"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 4000,
+        "waivable": false,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "海外/官網每 10 元累 1 哩（約等值現金 5%）。",
+      "highlights": [
+        "長榮哩程",
+        "適合常飛"
+      ],
+      "limitations": "有年費；哩程價值依兌換航線浮動，非現金。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.evaair.com/zh-tw/infinity-mileagelands/",
+      "source_type": "fallback",
+      "official_url": "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/eva",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "china-airlines-cocard",
+      "name": "中華航空聯名卡",
+      "bank": "多家發卡",
+      "network": "Mastercard",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 10,
+        "program": "華夏會員"
+      },
+      "scenario_rates": {
+        "miles": 5.0,
+        "overseas": 5.0
+      },
+      "base_rate": 0.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 3600,
+        "waivable": false,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "指定商店每 10 元 1 里、國內 22 元 1 里（等值約 5%）。",
+      "highlights": [
+        "華航哩程",
+        "SkyTeam"
+      ],
+      "limitations": "國內累積較慢（22:1）；有年費。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.cardu.com.tw/message/detail.php?32254=",
+      "source_type": "fallback",
+      "official_url": "https://www.china-airlines.com/tw/zh",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "cathay-eva",
+      "name": "國泰長榮聯名卡",
+      "bank": "國泰世華",
+      "network": "Visa",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 10,
+        "program": "長榮無限萬哩遊"
+      },
+      "scenario_rates": {
+        "miles": 5.0,
+        "overseas": 5.0
+      },
+      "base_rate": 0.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 3000,
+        "waivable": false,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "海外每 10 元 1 哩（等值約 5%），長榮常客首選。",
+      "highlights": [
+        "長榮加速",
+        "旅遊權益"
+      ],
+      "limitations": "有年費；哩程價值浮動。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.money101.com.tw/blog/值得關注的里程信用卡",
+      "source_type": "fallback",
+      "official_url": "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/eva",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "dbs-fly",
+      "name": "星展飛行卡",
+      "bank": "星展銀行",
+      "network": "Visa",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 12,
+        "program": "飛行積金轉哩程"
+      },
+      "scenario_rates": {
+        "miles": 4.17,
+        "overseas": 4.17
+      },
+      "base_rate": 0.0,
+      "effective_rate": 4.17,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 3600,
+        "waivable": false,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "海外約 12 元 1 哩（等值約 4.16%），飛行積金彈性兌換。",
+      "highlights": [
+        "彈性兌換",
+        "海外加速"
+      ],
+      "limitations": "有年費；國內累積較慢。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage",
+      "source_type": "fallback",
+      "official_url": "https://www.dbs.com.tw/personal-zh/cards/dbs-credit-cards/eco-world",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "sc-worldmiles",
+      "name": "渣打世界哩享卡",
+      "bank": "渣打銀行",
+      "network": "Mastercard",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 12,
+        "program": "可轉多航空"
+      },
+      "scenario_rates": {
+        "miles": 4.17,
+        "overseas": 4.17
+      },
+      "base_rate": 0.0,
+      "effective_rate": 4.17,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 3600,
+        "waivable": false,
+        "waive_condition": "首年免年費"
+      },
+      "summary": "海外約 12 元 1 哩（等值約 4.16%）。",
+      "highlights": [
+        "彈性轉點",
+        "海外加速"
+      ],
+      "limitations": "有年費；國內累積較慢。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/creditcard-miles-rewards/",
+      "source_type": "fallback",
+      "official_url": "https://www.sc.com/tw/credit-cards/world/",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    }
+  ],
+  "backup": [
+    {
+      "id": "hsbc-traveller",
+      "name": "匯豐旅人卡",
+      "bank": "匯豐銀行",
+      "network": "Visa",
+      "categories": [
+        "miles",
+        "overseas"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 15,
+        "program": "可轉亞洲萬里通等"
+      },
+      "scenario_rates": {
+        "miles": 3.33,
+        "overseas": 3.33
+      },
+      "base_rate": 0.0,
+      "effective_rate": 3.33,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "達標免年費"
+      },
+      "summary": "海外約 15 元 1 哩（等值約 3.33%），低年費入門哩程卡。",
+      "highlights": [
+        "低年費",
+        "彈性轉點"
+      ],
+      "limitations": "累積速度中等；轉點有比例限制。",
+      "valid_until": "2026-12-31",
+      "source": "https://rainieis.tw/mileage-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.hsbc.com.tw/credit-cards/products/travel/visa-infinite/",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    },
+    {
+      "id": "esun-world",
+      "name": "玉山世界卡",
+      "bank": "玉山銀行",
+      "network": "Mastercard World",
+      "categories": [
+        "overseas",
+        "miles"
+      ],
+      "reward_type": "miles",
+      "mile_spec": {
+        "ntd_per_mile": 15,
+        "program": "玉山點數轉哩程"
+      },
+      "scenario_rates": {
+        "overseas": 3.33,
+        "miles": 3.33
+      },
+      "base_rate": 0.0,
+      "effective_rate": 3.33,
+      "cap": {
+        "amount": null,
+        "period": "none"
+      },
+      "conditions": {
+        "need_register": false,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 1800,
+        "waivable": true,
+        "waive_condition": "刷卡達標免年費"
+      },
+      "summary": "海外約 15 元 1 哩（等值約 3.33%），附機場貴賓室。",
+      "highlights": [
+        "旅遊權益",
+        "貴賓室"
+      ],
+      "limitations": "有年費（可達標減免）；哩程價值浮動。",
+      "valid_until": "2026-12-31",
+      "source": "https://tw.trip.com/blog/哩程信用卡/",
+      "source_type": "fallback",
+      "official_url": "https://www.esunbank.com/zh-tw/personal/credit-card/intro/world-card/WORLD",
+      "travel_insurance": {
+        "has": true,
+        "amount": "3,000–5,000 萬元",
+        "note": "高端卡：刷團費/大眾運輸票款享旅遊平安險最高約 3,000–5,000 萬元 + 旅遊不便險（班機/行李延誤等）。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": []
+    }
+  ]
+}

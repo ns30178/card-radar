@@ -1,0 +1,562 @@
+{
+  "category": "mobile_pay",
+  "label": "行動支付",
+  "emoji": "📱",
+  "updated_at": "2026-07-06 08:37",
+  "primary": [
+    {
+      "id": "tcb-nagara",
+      "name": "合庫卡納赫拉聯名卡（綠卡）",
+      "bank": "合作金庫",
+      "network": "Mastercard",
+      "categories": [
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "mobile_pay": 11.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 11.0,
+      "cap": {
+        "amount": 300,
+        "period": "monthly",
+        "note": "行動支付加碼上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 3000,
+        "mobile_pay_required": true
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "當期滿額後指定行動支付最高 11% 回饋。",
+      "highlights": [
+        "行動支付天花板",
+        "聯名卡人氣"
+      ],
+      "limitations": "須滿額門檻 + 登錄 + 綁定指定行動支付；上限偏低。",
+      "valid_until": "2026-12-31",
+      "source": "https://roo.cash/blog/online-shopping-creditcard-comparison/",
+      "source_type": "fallback",
+      "official_url": "https://www.tcb-bank.com.tw/personal-banking/credit-card/intro/overview/kanahei",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko",
+        "apple_pay",
+        "pxpay"
+      ]
+    },
+    {
+      "id": "taishin-jko",
+      "name": "台新街口聯名卡",
+      "bank": "台新銀行",
+      "network": "Mastercard",
+      "categories": [
+        "mobile_pay"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "mobile_pay": 7.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 7.0,
+      "cap": {
+        "amount": 400,
+        "period": "monthly",
+        "note": "街口幣加碼上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": true
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "街口支付綁定最高 7% 街口幣。",
+      "highlights": [
+        "街口加碼",
+        "行支高回饋"
+      ],
+      "limitations": "須綁街口 + 登錄；街口幣使用通路限定。",
+      "valid_until": "2026-12-31",
+      "source": "https://lixianglife.net/creditcard/481/",
+      "source_type": "fallback",
+      "official_url": "https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg038/card001/",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "jko"
+      ]
+    },
+    {
+      "id": "kgi-now",
+      "name": "凱基 NOW 卡",
+      "bank": "凱基銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "delivery_streaming",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.8,
+        "delivery_streaming": 3.8,
+        "mobile_pay": 3.8
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.8,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "自選類別加碼"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "自選類別（網購/外送/行支）加碼最高 3.8%。",
+      "highlights": [
+        "自選類別",
+        "彈性"
+      ],
+      "limitations": "須登錄選類；有月上限。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/all-credit-cards-suggest/",
+      "source_type": "fallback",
+      "official_url": "https://www.kgibank.com.tw/zh-tw/personal/credit-card/list/more-buy-credit-card",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko",
+        "apple_pay",
+        "pxpay"
+      ]
+    },
+    {
+      "id": "yuanta-diamond",
+      "name": "元大鑽金卡",
+      "bank": "元大銀行",
+      "network": "Mastercard",
+      "categories": [
+        "mobile_pay",
+        "domestic_general"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "mobile_pay": 3.3,
+        "domestic_general": 1.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.3,
+      "cap": {
+        "amount": 300,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": true
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "指定行動支付最高 3.3%。",
+      "highlights": [
+        "行支加碼"
+      ],
+      "limitations": "須綁行支 + 登錄；上限偏低。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.businesstoday.com.tw/article/category/183030/post/202601120022/",
+      "source_type": "fallback",
+      "official_url": "https://www.yuantabank.com.tw/bank/creditCard/creditCard/in.do?id=275bac7b2e000004dddb",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko",
+        "apple_pay"
+      ]
+    },
+    {
+      "id": "firstbank-ileo",
+      "name": "第一銀行 iLEO 卡",
+      "bank": "第一銀行",
+      "network": "Mastercard",
+      "categories": [
+        "delivery_streaming",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "delivery_streaming": 5.0,
+        "mobile_pay": 3.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 5.0,
+      "cap": {
+        "amount": 200,
+        "period": "monthly",
+        "note": "外送加碼每戶月上限 200 元"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": true,
+        "min_spend": 5000,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "滿額後 Uber Eats/foodpanda 等 5% 刷卡金。",
+      "highlights": [
+        "外送加碼",
+        "數位帳戶整合"
+      ],
+      "limitations": "須滿 5000 元 + 登錄；月回饋上限僅 200 元。",
+      "valid_until": "2026-12-31",
+      "source": "https://rich01.com/foodpanda-ubereats-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://card.firstbank.com.tw/sites/card/zh_TW/1565690685937",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "apple_pay"
+      ]
+    }
+  ],
+  "backup": [
+    {
+      "id": "cathay-cube",
+      "name": "國泰 CUBE 卡",
+      "bank": "國泰世華",
+      "network": "Visa",
+      "categories": [
+        "domestic_general",
+        "overseas",
+        "online_shopping",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "domestic_general": 1.0,
+        "overseas": 3.0,
+        "online_shopping": 3.0,
+        "mobile_pay": 3.0
+      },
+      "base_rate": 0.3,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 1000,
+        "period": "monthly",
+        "note": "各方案加碼上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "權益自由切換（玩數位/樂饗購/趣旅行）最高 3%。",
+      "highlights": [
+        "權益自選",
+        "一卡多用"
+      ],
+      "limitations": "須於 App 切換方案並登錄；每月僅能切換有限次數。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.money101.com.tw/信用卡/精選推薦",
+      "source_type": "fallback",
+      "official_url": "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko",
+        "apple_pay",
+        "pxpay"
+      ]
+    },
+    {
+      "id": "ubot-friends",
+      "name": "聯邦賴點卡",
+      "bank": "聯邦銀行",
+      "network": "Mastercard",
+      "categories": [
+        "mobile_pay",
+        "online_shopping"
+      ],
+      "reward_type": "points",
+      "scenario_rates": {
+        "mobile_pay": 3.0,
+        "online_shopping": 2.0
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 500,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": true
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "LINE Pay/指定行支加碼，LINE POINTS 回饋。",
+      "highlights": [
+        "LINE POINTS",
+        "行支加碼"
+      ],
+      "limitations": "須登錄且有月上限。",
+      "valid_until": "2026-12-31",
+      "source": "https://lixianglife.net/creditcard/11932/",
+      "source_type": "fallback",
+      "official_url": "https://card.ubot.com.tw/CardDetail/cardDetail201",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko"
+      ]
+    },
+    {
+      "id": "cathay-koko",
+      "name": "國泰 KOKO Combo 卡",
+      "bank": "國泰世華",
+      "network": "Visa",
+      "categories": [
+        "mobile_pay",
+        "online_shopping"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "mobile_pay": 3.0,
+        "online_shopping": 3.0
+      },
+      "base_rate": 0.5,
+      "effective_rate": 3.0,
+      "cap": {
+        "amount": 300,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": true,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "數位帳戶整合，指定行支/網購 3%。",
+      "highlights": [
+        "數位帳戶",
+        "年輕族群"
+      ],
+      "limitations": "須 KOKO 帳戶 + 登錄；上限偏低。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.businesstoday.com.tw/article/category/183030/post/202601120022/",
+      "source_type": "fallback",
+      "official_url": "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "apple_pay"
+      ]
+    },
+    {
+      "id": "scsb-lohas",
+      "name": "上海商銀樂活卡",
+      "bank": "上海商業儲蓄銀行",
+      "network": "Mastercard",
+      "categories": [
+        "domestic_general",
+        "mobile_pay"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "domestic_general": 1.2,
+        "mobile_pay": 2.8
+      },
+      "base_rate": 1.2,
+      "effective_rate": 2.8,
+      "cap": {
+        "amount": 300,
+        "period": "monthly"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": true
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "行動支付加碼最高 2.8%，基礎 1.2%。",
+      "highlights": [
+        "行支加碼",
+        "基礎穩定"
+      ],
+      "limitations": "加碼須綁行支 + 登錄；有上限。",
+      "valid_until": "2026-12-31",
+      "source": "https://www.businesstoday.com.tw/article/category/183030/post/202601120022/",
+      "source_type": "fallback",
+      "official_url": "https://www.scsb.com.tw/content/card/card03.html",
+      "travel_insurance": {
+        "has": false,
+        "amount": null,
+        "note": "一般消費卡，旅遊平安險非主打；如有需求請以發卡行方案為準。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko"
+      ]
+    },
+    {
+      "id": "taishin-richart",
+      "name": "台新 Richart 卡",
+      "bank": "台新銀行",
+      "network": "Mastercard",
+      "categories": [
+        "online_shopping",
+        "mobile_pay",
+        "overseas",
+        "delivery_streaming"
+      ],
+      "reward_type": "cash",
+      "scenario_rates": {
+        "online_shopping": 3.3,
+        "mobile_pay": 2.3,
+        "overseas": 3.3,
+        "delivery_streaming": 3.3
+      },
+      "base_rate": 1.0,
+      "effective_rate": 3.3,
+      "cap": {
+        "amount": 500,
+        "period": "monthly",
+        "note": "指定通路加碼有上限"
+      },
+      "conditions": {
+        "need_register": true,
+        "need_digital_account": false,
+        "min_spend": 0,
+        "mobile_pay_required": false
+      },
+      "annual_fee": {
+        "amount": 0,
+        "waivable": true,
+        "waive_condition": "免年費"
+      },
+      "summary": "一卡整合 7 大自選方案（原 FlyGo 海外、@GoGo 網購外送等），最高 3.8%。",
+      "highlights": [
+        "網購強",
+        "海外無上限",
+        "外送影音通用",
+        "整合 FlyGo/＠GoGo",
+        "權益自選"
+      ],
+      "limitations": "須登錄指定通路，一般消費僅 1%；加碼須符合活動通路清單。",
+      "valid_until": "2026-06-30",
+      "source": "https://rich01.com/foodpanda-ubereats-credit-card/",
+      "source_type": "fallback",
+      "official_url": "https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/cg047/card001/",
+      "travel_insurance": {
+        "has": true,
+        "amount": "1,000–2,000 萬元",
+        "note": "旅遊型卡：刷團費/大眾運輸票款享旅遊平安險最高約 1,000–2,000 萬元，多數另含旅遊不便險。實際額度依發卡行公告。"
+      },
+      "status": "active",
+      "expires": null,
+      "pay_channels": [
+        "line_pay",
+        "jko",
+        "apple_pay",
+        "pxpay"
+      ]
+    }
+  ]
+}
